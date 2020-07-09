@@ -1,0 +1,35 @@
+ssh root@id
+yum install -y httpd php php-fpm php-server php-mysql mysql
+vim /etc/httpd/conf/httpd.conf
+//在最后一行添加
+ServerName localhost:80
+：wq
+//vim下退出，先按esc，再：wq
+wget -c https://sandbox-experiment-resource.obs-website.cn-north-1.myhwclouds.com/30min-website/wordpress-4.9.1-zh_CN.tar.gz
+tar -zxvf wordpress-4.9.1-zh_CN.tar.gz -C /var/www/html
+chmod -R 777 /var/www/html
+
+
+systemctl start httpd.service
+systemctl start php-fpm.service
+
+systemctl status httpd
+systemctl status php-fpm
+
+systemctl enable httpd
+systemctl enable php-fpm
+
+//安装php
+yum install php php-devel
+yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc
+systemctl restart httpd.service
+
+ej<jxt.qt3yD
+//安装mysql
+wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
+yum -y install mysql57-community-release-el7-10.noarch.rpm
+yum -y install mysql-community-server
+
+systemctl start  mysqld.service
+systemctl status mysqld.service
+systemctl enable mysqld.service
