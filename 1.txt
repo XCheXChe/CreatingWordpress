@@ -24,7 +24,6 @@ yum install php php-devel
 yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc
 systemctl restart httpd.service
 
-ej<jxt.qt3yD
 //安装mysql
 wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
 yum -y install mysql57-community-release-el7-10.noarch.rpm
@@ -33,3 +32,11 @@ yum -y install mysql-community-server
 systemctl start  mysqld.service
 systemctl status mysqld.service
 systemctl enable mysqld.service
+
+grep "password" /var/log/mysqld.log
+//找到默认密码
+mysql -u root -p
+mysql > ALTER USER 'root'@'localhost' IDENTIFIED BY 'CHEN367acs!';
+mysql > create database wordpress;
+exit
+yum -y remove mysql57-community-release-el7-10.noarch
