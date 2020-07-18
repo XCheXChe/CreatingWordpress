@@ -40,3 +40,4 @@ mysql > ALTER USER 'root'@'localhost' IDENTIFIED BY 'CHEN367acs!';
 mysql > create database wordpress;
 exit
 yum -y remove mysql57-community-release-el7-10.noarch
+//啊这
