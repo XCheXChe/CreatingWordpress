@@ -36,8 +36,9 @@ systemctl enable mysqld.service
 grep "password" /var/log/mysqld.log
 //找到默认密码
 mysql -u root -p
-mysql > ALTER USER 'root'@'localhost' IDENTIFIED BY 'CHEN367acs!';
+mysql > ALTER USER 'root'@'localhost' IDENTIFIED BY '//MIMA';
 mysql > create database wordpress;
 exit
 yum -y remove mysql57-community-release-el7-10.noarch
 //啊这
+
