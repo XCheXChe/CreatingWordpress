@@ -42,3 +42,11 @@ exit
 yum -y remove mysql57-community-release-el7-10.noarch
 //啊这
 
+//wordexpress更新
+cd /var/www/html
+vim wp-config.php
+
+define("FS_METHOD", "direct");
+define("FS_CHMOD_DIR", 0777);
+define("FS_CHMOD_FILE", 0777);
+:wq//保存退出
