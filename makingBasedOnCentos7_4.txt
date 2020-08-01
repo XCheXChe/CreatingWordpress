@@ -8,7 +8,8 @@ ServerName localhost:80
 ：wq
 //vim下退出，先按esc，再：wq
 wget -c https://cn.wordpress.org/latest-zh_CN.tar.gz
-tar -zxvf latest-zh_CN.tar.gz -C /var/www/html
+mv /root/wordpress/* /var/www/html
+tar -zxvf latest-zh_CN.tar.gz\
 chmod -R 777 /var/www/html
 
 
