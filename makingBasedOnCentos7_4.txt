@@ -1,12 +1,14 @@
 ssh root@id
-yum install -y httpd php php-fpm php-server php-mysql mysql
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+yum install -y httpd php72w php72w-fpm php72w-server php72w-mysql mysql
 vim /etc/httpd/conf/httpd.conf
 //在最后一行添加
 ServerName localhost:80
 ：wq
 //vim下退出，先按esc，再：wq
-wget -c https://sandbox-experiment-resource.obs-website.cn-north-1.myhwclouds.com/30min-website/wordpress-4.9.1-zh_CN.tar.gz
-tar -zxvf wordpress-4.9.1-zh_CN.tar.gz -C /var/www/html
+wget -c https://cn.wordpress.org/latest-zh_CN.tar.gz
+tar -zxvf latest-zh_CN.tar.gz -C /var/www/html
 chmod -R 777 /var/www/html
 
 
@@ -20,8 +22,8 @@ systemctl enable httpd
 systemctl enable php-fpm
 
 //安装php
-yum install php php-devel
-yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc
+yum install php72w php72w-devel
+yum install php72w-mysql php72w-gd php72w-imap php72w-ldap php72w-odbc php72w-pear php72w-xml php72w-xmlrpc
 systemctl restart httpd.service
 
 //安装mysql
